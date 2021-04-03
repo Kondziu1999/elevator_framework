@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment.prod';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
@@ -37,6 +38,10 @@ export class AddSimulationComponent implements OnInit {
         if(!this.form.valid || Number.parseInt(this.form.get('elevatorFloors').value) ==0 || 
             Number.parseInt(this.form.get('elevatorFloors').value) < Number.parseInt(this.form.get('startFloor').value)) {
             this._snackBar.open("please provide valid data for elevator", "ok");
+            return;
+        }
+        if (this.addedElevators.length >= environment.simulationElevatorsLimit) {
+            this._snackBar.open("maximum elevator number is 16!", "ok");
             return;
         }
 

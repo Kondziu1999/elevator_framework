@@ -1,4 +1,4 @@
-import { SimulationService } from './../../services/simulation.service';
+import { environment } from './../../../environments/environment.prod';
 import { Elevator } from './../models/elevator.model';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
@@ -116,7 +116,7 @@ export class ElevatorComponent implements OnInit {
         let isFeasible =  this._downList.length > 0 || this._upList.length > 0;
         if (!isFeasible) {
             this._snackBar.open("cannot perform simulation step, check input data", "ok", {
-            duration: 2000,
+            duration: environment.snackbarDuration,
             });
             return false;
         }

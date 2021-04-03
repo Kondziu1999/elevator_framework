@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  snackbarDuration: 200,
+  simulationElevatorsLimit: 16
 };
