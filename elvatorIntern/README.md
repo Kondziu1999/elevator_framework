@@ -1,4 +1,4 @@
-# ElvatorIntern
+# ElevatorIntern
 Project created as intern recruitment task. 
 Elevator algorith works as follows:
 

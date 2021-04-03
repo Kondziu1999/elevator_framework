@@ -35,4 +35,32 @@ export class WelcomeComponent implements OnInit {
         this.dialog.open(AddSimulationComponent);
     }
     
+
+    public loadSampleData() {
+        this.simulationService.addSimulation(getMockSimualtion());
+    }
+}
+
+export function getMockSimualtion() {
+    var simulation: Simulation = {id: uuidv4(), creationDate: new Date(), name: "sim1", elevators: getMockElevators()};
+    return simulation;
+}
+
+export function getMockElevators() {
+    var elevator: Elevator = {
+        currentDirection: ElevatorDirection.Up, 
+        currentFloor: 1, 
+        floorsCount: 10, 
+        id: uuidv4(), 
+        name: "fastElevator",
+        simulationStep: 3,
+        downList: [0],
+        upList: [5,6],
+    };
+
+    return [
+        elevator, 
+        {...elevator, floorCount: 14, id: uuidv4(), currentFloor: 4}, 
+        {...elevator, floorCount: 6, id: uuidv4(), currentFloor: 2, downList: [], upList: [5]},
+    ];
 }

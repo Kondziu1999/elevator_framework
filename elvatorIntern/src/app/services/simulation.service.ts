@@ -29,7 +29,6 @@ export class SimulationService {
     }
 
     public getSimulations(): Observable<Array<Simulation>> {
-        debugger;
         let simulations = this.retrieveSimulationsFromLocalStorage() || [];
         this.simulationsSubject.next(simulations);
         return simulateNetworkDelay(simulations);
