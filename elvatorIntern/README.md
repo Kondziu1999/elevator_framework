@@ -1,27 +1,31 @@
 # ElvatorIntern
+Project created as intern recruitment task. 
+Elevator algorith works as follows:
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
+## Algorithm
+Algorithm has two lists for each direciton.
+Elevator move in one direction(Up/Down) till there is no floors in given direction to visit.
+If elevator visited all floors in given direction it changes direction to opposite.
+If direciton lists are empty nothing happens, only snackbar info.
+Elevator visit all the floors along the way.
+Simulation step: 1 floor
 
-## Development server
+## Technical info
+Framework: Angular 10,
+Language: Typescript
+Others: Angular Material, uuidv4, RxJs
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Simulations are cashed in local store for simlicity. Network delay is simulated.
+Solution is spilited into lazy loaded modules.
+Most template data is provided by observable streams
+Core logic is covered by test.
 
-## Code scaffolding
+Sample data is provided, on dahboard click => load sample data
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## To run
+npm install
+ng serve
 
-## Build
+ng test
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Enjoy !
