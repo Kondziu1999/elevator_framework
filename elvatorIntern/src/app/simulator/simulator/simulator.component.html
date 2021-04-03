@@ -1,0 +1,35 @@
+<div class="simulator-container" *ngVar="(simulation$ | async) as simulation">
+
+    <div class="simulator-container__description">
+        <h1 class="simulator-container__description__title">
+           {{simulation.name}}
+        </h1>
+        <h2 class="simulator-date">
+            created: {{simulation.creationDate | date: 'dd/MM/yyyy'}}
+        </h2>
+        <h3 class="simulator-count">
+            elevators: {{simulation.elevators.length}}
+        </h3>
+    </div>
+
+    <div class="elevators-container ">
+
+        <div *ngFor="let elevator of simulation?.elevators">
+            <app-elevator
+                #elevator
+                [elevator]="elevator">
+            </app-elevator>
+        </div>
+    </div>
+
+    <div class="simulator-container__actions">
+        <button mat-stroked-button (click)="navigateToMenu()">Back To Menu</button>
+        <button mat-raised-button color="accent" (click)="saveSimulationState()">Save state</button>
+        <button mat-raised-button color="primary" (click)="performSimulationStepOnAll()">Simulation Step On All</button>
+    </div>
+
+
+</div>
+
+
+   

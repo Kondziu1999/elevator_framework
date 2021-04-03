@@ -1,0 +1,92 @@
+.add-simulation-container {
+    width: 40vw;
+    height: auto;
+    padding: 1vw;
+
+    .add-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+
+        mat-form-field,mat-radio-group {
+            flex-basis: 45%;
+        }
+
+        .radio-wrapper {
+            flex-basis: 45%;
+            display: flex;
+            flex-direction: column;
+
+            .caption{
+                margin-bottom: 1vw;
+            }
+            
+        }
+
+        .add-btn{
+            margin-top: 3vw;
+            flex-basis: 100%;
+        }
+    }
+
+    .added-elevators-container {
+        display: flex;
+        flex-direction: column;
+        
+        .caption {
+            margin-top: 1vw;
+            flex-basis: 100%;
+        }
+
+        .elevator {
+            display: flex;
+
+            &__name {
+                flex-basis: 40%;
+            }
+            &__floors {
+                flex-basis: 15%;
+            }
+            &__startFloor {
+                flex-basis: 15%;
+            }
+            &__startDirection {
+                flex-basis: 20%;
+            }
+
+            &__delete {
+                flex-basis: 10%;
+                display: flex;
+                justify-content: center;
+                .small-delete-btn {
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 50%;
+                    background-color: red;
+                    color: white;
+                    text-align: center;
+                    &:hover {
+                        transform: scale(1.1);
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+
+        .elevator--title {
+            font-weight: bold;
+            &>* {
+                font-weight: bold;
+            }
+        } 
+    }
+
+    .btns-container{
+        margin-top: 3vw;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+}

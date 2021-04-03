@@ -1,0 +1,57 @@
+.elevator {
+    max-width: 350px;
+    max-height: 350px;
+
+    width: 20vw;
+    height: 20vw;
+    padding: 2vw;
+
+    box-shadow: 1px 1px 4px 3px #bfbfbf;
+
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(5,1fr);
+    grid-template-areas: 
+        "title         title"
+        "directionUp   currentFloor"
+        "directionDown currenDirection"
+        "step          select"
+        "button        button";
+    
+    &__data-field {
+        &--direction-up{
+            grid-area: directionUp;
+        }
+
+        &--direction-down{
+            grid-area: directionDown;
+        }
+
+        &--current-floor{
+            grid-area: currentFloor;
+        }
+
+        &--current-direction{
+            grid-area: currenDirection;
+        }
+
+        &--current-step{
+            grid-area: step;
+        }
+    }
+    
+    &__title {
+        grid-area: title;
+    }
+    &__select-floors {
+        width: 10vw;
+        mat-form-field {
+            width: inherit;
+        }
+    }
+
+    &__perform-btn {
+        grid-area: button
+    }
+
+}

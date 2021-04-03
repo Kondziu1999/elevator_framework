@@ -1,0 +1,100 @@
+<div class="add-simulation-container">
+    
+    <h1>
+        Add new Simulation
+    </h1>
+
+    <mat-form-field appearance="fill" [(ngModel)]="simulationTitle" ngDefaultControl >
+            <mat-label>Simulation Title</mat-label>
+            <input matInput>
+    </mat-form-field>
+
+    <h2> Add Elevator</h2>
+    <div class="add-container">
+
+        <form style="display:contents" [formGroup]="form">
+            <mat-form-field appearance="fill">
+                <mat-label>Elevator Name</mat-label>
+                <input matInput formControlName="elevatorName">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Elevator floors</mat-label>
+                <input matInput inputmode="numeric" formControlName="elevatorFloors">
+            </mat-form-field>
+
+            <div class="radio-wrapper">
+                <label class="caption">Initial elevator direction</label>
+                <mat-radio-group formControlName="startDirection">
+                    <mat-radio-button value="Up">
+                        Up
+                    </mat-radio-button>
+                    <mat-radio-button value="Down">
+                        Down
+                    </mat-radio-button>
+                </mat-radio-group>
+            </div>
+            
+            
+            <mat-form-field appearance="fill">
+                <mat-label>Initial floor</mat-label>
+                <input matInput inputmode="numeric" formControlName="startFloor">
+            </mat-form-field>
+
+        </form>
+
+        <button mat-raised-button color="accent" class="add-btn" (click)="addElevator()">Add elevator</button>
+
+    </div>
+    
+
+    <div class="added-elevators-container">
+        <h2 class="caption"> Already added elevators</h2>
+        
+        <div class="elevator elevator--title">
+            <span class="elevator__name">
+                name
+            </span>
+            <span class="elevator__floors">
+                floors
+            </span>
+            <span class="elevator__startFloor">
+                start floor
+            </span>
+            <span class="elevator__startDirection">
+                start direciton
+            </span>
+            <span class="elevator__delete">
+                delete
+            </span>
+
+        </div>
+
+        <div class="elevator" *ngFor="let elevator of addedElevators">
+            <span class="elevator__name">
+                 {{elevator.name}}
+            </span>
+            <span class="elevator__floors">
+                {{elevator.floorsCount}}
+            </span>
+            <span class="elevator__startFloor">
+                {{elevator.currentFloor}}
+            </span>
+            <span class="elevator__startDirection">
+                {{elevator.currentDirection}}
+            </span>
+            <div class="elevator__delete">
+                <div class="small-delete-btn" (click)="removeElevator(elevator.id)">
+                    X
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="btns-container">
+        <button mat-stroked-button (click)="closeDialog()">Close</button>
+        <button mat-raised-button color="primary" (click)="createSimulation()">Create simulation</button>
+    </div>
+    
+</div>

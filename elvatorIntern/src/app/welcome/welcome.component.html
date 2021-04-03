@@ -1,0 +1,51 @@
+<div class="simulations-conatiner">
+
+    <h1 *ngIf="!(simulations$ |async)?.length">
+        There is no siumulations available. Add one to start simulate elevators!
+    </h1>
+    
+    <div *ngFor="let simulation of (simulations$ |async)" (click)="navigateToSimulator(simulation.id)" class="simulation">
+
+        <h2 class="simulation__title">
+            {{simulation.name}}
+        </h2>
+
+        <span class="simulation__date">
+            created: {{simulation.creationDate | date: 'dd/MM/yyyy'}}
+        </span>
+        <span class="simulation__count">
+            elevators: {{simulation.elevators.length}}
+        </span>
+
+        <div class="simulation__elevators">
+            <div class="elevator-info elevator-info--emphasis">
+                <span>
+                    elevator
+                </span>
+                <span>
+                    simulation step
+                </span>
+                    
+                </div>
+            <div *ngFor="let elevator of simulation.elevators">
+                <div class="elevator-info">
+                    <span>
+                        {{elevator.name}}
+                    </span>
+                    <span>
+                        {{elevator.floorsCount}}
+                    </span>
+                    
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="floating_btn_container">
+        <div class="circle-btn" (click)="addSimulation()">
+            <span class="btn-text">+</span>
+        </div>
+    </div>
+
+</div>

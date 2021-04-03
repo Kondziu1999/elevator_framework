@@ -1,0 +1,51 @@
+
+
+<div class="elevator">
+    <div class="elevator__title">
+        <h2>{{elevator.name}}</h2>
+    </div>
+
+    <div class="elevator__data-field--direction-up">
+        <span>Up list: {{upList}}</span>
+
+    </div>
+
+    <div class="elevator__data-field--direction-down">
+        <span>Down list: {{downList}}</span>
+
+    </div>
+
+    <div class="elevator__data-field--current-floor">
+        <span>Current floor: {{currentFloor}}</span>
+
+    </div>
+
+    <div class="elevator__data-field--current-direction">
+        <span>Current direction: {{currentDirection}}</span>
+
+    </div>
+
+    <div class="elevator__data-field--current-step">
+         <span>Simulation Step: {{simulationStep}}</span>
+    </div>
+
+    <div class="elevator__select-floors">
+         <mat-form-field appearance="fill">
+            <mat-label>Floors</mat-label>
+            <mat-select #select [formControl]="form" multiple>
+                <mat-select-trigger>
+                {{form.value ? form.value[0] : ''}}
+                <span *ngIf="form.value?.length > 1" class="example-additional-selection">
+                    (+{{form.value.length - 1}} {{form.value?.length === 2 ? 'other' : 'others'}})
+                </span>
+                </mat-select-trigger>
+                <mat-option *ngFor="let floor of floors" [value]="floor">{{floor}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="elevator__perform-btn">
+         <button mat-raised-button color="accent" (click)="performSimulationStep()">Simulation Step</button>
+    </div>
+
+</div>

@@ -1,0 +1,100 @@
+.simulations-conatiner {
+    height: fit-content;
+    padding: 5vw;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2vw;
+    
+    .simulation {
+        width: 20vw;
+        height: 20vw;
+        padding: 2vw;
+        box-shadow: 1px 1px 4px 3px #bfbfbf;
+
+        &:hover {
+            cursor: pointer;
+            transform: scale(1.05);
+        }
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 4fr;
+        grid-template-areas: 
+            "title  title"
+            "date   count"
+            "elevators elevators";
+
+        &__title {
+            grid-area: title;
+            font-weight: bold;
+        }
+
+        &__date {
+            grid-area: date;
+            font-weight: bold;
+        }
+        &__count {
+            justify-self: end;
+            grid-area: count;
+            font-weight: bold;
+        }
+
+        &__elevators {
+            height: 100%;
+            width: 100%;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            grid-area: elevators;
+
+            .elevator-info{
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                
+                justify-content: space-between;
+            }
+            .elevator-info--emphasis{
+                font-weight: bold;
+                margin-bottom: 0.5vw;
+            }
+        }
+        
+    }
+
+    .floating_btn_container{
+        width: 20vw;
+        height: 20vw;
+        padding: 2vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+            cursor: pointer;
+            transform: scale(1.1);
+        }
+
+        .circle-btn {
+            width: 5vw;
+            height: 5vw;
+            border-radius: 50%;
+            background-color: purple;
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .btn-text {
+                color: white;
+                font-size: 3vw;
+                font-weight: 400;
+            }
+        }
+        
+    }
+
+}
